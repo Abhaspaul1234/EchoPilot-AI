@@ -1,0 +1,17 @@
+# Python virtual environment
+venv/
+
+# If your venv is inside Backend
+Backend/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+Backend/.env
+
+# Output folders (optional, if generated)
+outputs/
+uploads/
