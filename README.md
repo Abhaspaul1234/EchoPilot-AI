@@ -23,7 +23,6 @@ EchoPilot AI is an AI-powered motorsport assistant that analyzes Formula-style d
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap 5
 
 ### Backend
 - Python
