@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="80"
+     height="80"
+     viewBox="0 0 64 64">
+
+    <defs>
+        <linearGradient id="gearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff2d2d"/>
+            <stop offset="100%" stop-color="#b30000"/>
+        </linearGradient>
+
+        <filter id="shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="2"
+                flood-color="#ff2d2d"
+                flood-opacity="0.35"/>
+        </filter>
+    </defs>
+
+    <!-- Background -->
+    <circle cx="32"
+            cy="32"
+            r="28"
+            fill="#111827"
+            stroke="#2D3748"
+            stroke-width="2"/>
+
+    <!-- Gear -->
+    <g filter="url(#shadow)">
+
+        <!-- Teeth -->
+        <rect x="30" y="13" width="4" height="8" rx="1" fill="url(#gearGrad)"/>
+        <rect x="30" y="43" width="4" height="8" rx="1" fill="url(#gearGrad)"/>
+
+        <rect x="13" y="30" width="8" height="4" rx="1" fill="url(#gearGrad)"/>
+        <rect x="43" y="30" width="8" height="4" rx="1" fill="url(#gearGrad)"/>
+
+        <rect x="18.5" y="18.5"
+              width="4"
+              height="8"
+              rx="1"
+              transform="rotate(-45 20.5 22.5)"
+              fill="url(#gearGrad)"/>
+
+        <rect x="41.5" y="18.5"
+              width="4"
+              height="8"
+              rx="1"
+              transform="rotate(45 43.5 22.5)"
+              fill="url(#gearGrad)"/>
+
+        <rect x="18.5" y="37.5"
+              width="4"
+              height="8"
+              rx="1"
+              transform="rotate(45 20.5 41.5)"
+              fill="url(#gearGrad)"/>
+
+        <rect x="41.5" y="37.5"
+              width="4"
+              height="8"
+              rx="1"
+              transform="rotate(-45 43.5 41.5)"
+              fill="url(#gearGrad)"/>
+
+        <!-- Gear Ring -->
+        <circle cx="32"
+                cy="32"
+                r="11"
+                fill="none"
+                stroke="url(#gearGrad)"
+                stroke-width="4"/>
+
+        <!-- Center -->
+        <circle cx="32"
+                cy="32"
+                r="4"
+                fill="#ffffff"/>
+
+    </g>
+
+</svg>
