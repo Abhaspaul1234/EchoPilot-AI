@@ -59,6 +59,7 @@ html, body {
     line-height: 1.6;
     overflow-x: hidden;
     scroll-behavior: smooth;
+   background-image: url("assets/backgrounds/home page.png");
 }
 
 /* Header & Nav */
