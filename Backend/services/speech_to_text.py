@@ -10,9 +10,22 @@ headers = {
 
 def transcribe_audio(audio_path): #new function
     with open(audio_path, "rb") as audio_file: #opens the path as audio_file in read binary mode
-        #sending api request to the Hugging Face API with the audio file and headers
-        response = requests.post(
+        response = requests.post( #sending api request to the Hugging Face API with the audio file and headers
         API_URL,
         headers=headers,
         data=audio_file
 )
+        result = response.json() #takes only the response data and turns it into a dictionary
+
+        
+        if "error" in result:
+            return{
+                "Success": False,
+                "Error": result["error"]
+            }
+        return{
+            "Success": True,
+            "Text": result["text"]
+        }
+
+    
