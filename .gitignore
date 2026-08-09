@@ -1,8 +1,9 @@
 # Python virtual environment
 venv/
-
-# If your venv is inside Backend
+.venv/
 Backend/venv/
+Backend/.venv/
+instance/
 
 # Python cache
 __pycache__/
@@ -12,6 +13,10 @@ __pycache__/
 .env
 Backend/.env
 
-# Output folders (optional, if generated)
+# Database
+*.db
+Backend/echopilot.db
+
+# Output folders
 outputs/
 uploads/

@@ -155,7 +155,7 @@ uploadForm.addEventListener('submit', (e) => {
             const formData = new FormData();
 
             // ✅ MUST match Flask backend
-            formData.append("file", audioFile);
+            formData.append("audio", audioFile);
             formData.append("csv", csvFile);
 
             const response = await fetch("http://127.0.0.1:5000/upload", {
