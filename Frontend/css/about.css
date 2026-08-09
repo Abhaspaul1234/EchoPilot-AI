@@ -11,6 +11,29 @@
     align-items: center;
 }
 
+main.container {
+    position: relative;
+    isolation: isolate;
+
+    background-image:
+        linear-gradient(
+            rgba(11, 12, 16, 0.72),
+            rgba(11, 12, 16, 0.72)
+        ),
+        url("../../assets/backgrounds/about.png");
+
+    /* Show the COMPLETE image */
+    background-size: contain;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /* Keep image fixed while content scrolls */
+    background-attachment: fixed;
+
+    background-color: var(--bg-darker);
+}
+
 .intro-text-panel {
     display: flex;
     flex-direction: column;
@@ -147,6 +170,7 @@
     height: 42px;
     object-fit: contain;
     image-rendering: auto;
+}
    
 @media (max-width: 900px) {
     .about-intro-grid {
