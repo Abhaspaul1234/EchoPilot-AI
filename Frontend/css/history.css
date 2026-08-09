@@ -88,6 +88,20 @@ table.telemetry-table tr:hover td {
     font-size: 0.95rem;
 }
 
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    image-rendering: auto;
+   
 @media (max-width: 900px) {
     table.telemetry-table th, 
     table.telemetry-table td {
