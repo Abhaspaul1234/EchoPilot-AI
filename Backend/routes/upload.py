@@ -1,61 +1,82 @@
 from flask import Blueprint, request, jsonify
 import os
+
 from database.db import db
 from database.models import Session
 from services.speech_to_text import transcribe_audio
 
+# Create blueprint
 upload_bp = Blueprint("upload", __name__)
+
+
 @upload_bp.route("/upload", methods=["POST"])
 def upload_file():
-
-    # Get uploaded files
-    audio_file = request.files.get("file")
+    # =============================
+    # Get files from request
+    # =============================
+    audio_file = request.files.get("audio")
     csv_file = request.files.get("csv")
 
-    # Check if audio exists
     if not audio_file:
-        return jsonify({
-            "error": "No audio file uploaded."
-        }), 400
+        return jsonify({"error": "No audio file uploaded"}), 400
 
-    # Save uploaded file
+    # =============================
+    # Ensure upload folder exists
+    # =============================
+    os.makedirs("uploads", exist_ok=True)
+
+    # Save files
     audio_path = os.path.join("uploads", audio_file.filename)
     audio_file.save(audio_path)
 
-    # Speech-to-text
-    transcript = transcribe_audio(audio_path)
+    csv_filename = None
+    if csv_file:
+        csv_path = os.path.join("uploads", csv_file.filename)
+        csv_file.save(csv_path)
+        csv_filename = csv_file.filename
 
-    # Check transcription
-    if transcript is None:
+    # =============================
+    # Transcribe audio
+    # =============================
+    result = transcribe_audio(audio_path)
+
+    if not result or not result.get("Success"):
         return jsonify({
-            "error": "Transcription failed."
+            "error": result.get("Error", "Transcription failed")
         }), 500
 
-    # Database operations
-    try:# this block attempts to create a new session in the database with the uploaded audio file, optional CSV file, and the transcript. If any error occurs during this process, it will rollback the transaction and return an error response.
+    transcript = result.get("Text", "")
 
-        new_session = Session(
-            audio_file=audio_file.filename,
-            csv_file=csv_file.filename if csv_file else None,
-            transcript=transcript
-        )
+    # =============================
+    # Create DB session entry
+    # =============================
+    new_session = Session(
+        audio_file=audio_file.filename,
+        csv_file=csv_filename,
+        transcript=transcript,
 
+        # Placeholder fields (you will upgrade later)
+        summary="Not generated yet",
+        sentiment="Not analyzed",
+        keywords="N/A"
+    )
+
+    try:
         db.session.add(new_session)
         db.session.commit()
-
     except Exception as e:
-
-        # Undo unfinished transaction
         db.session.rollback()
-
         return jsonify({
-            "error": "Database error.",
+            "error": "Database error",
             "details": str(e)
         }), 500
 
+    # =============================
+    # Return clean response
+    # =============================
     return jsonify({
         "session_id": new_session.id,
         "transcript": transcript,
         "audio_file": audio_file.filename,
-        "csv_file": csv_file.filename if csv_file else None
+        "csv_file": csv_filename
     }), 200
