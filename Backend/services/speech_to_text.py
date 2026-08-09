@@ -15,17 +15,16 @@ def transcribe_audio(audio_path): #new function
         headers=headers,
         data=audio_file
 )
+        if response.status_code != 200: #Checks if response code is not 200, if its true then we have an error.
+            print("Request failed with status:", response.status_code)
+            return None
+
+        
         result = response.json() #takes only the response data and turns it into a dictionary
 
         
-        if "error" in result:
-            return{
-                "Success": False,
-                "Error": result["error"]
-            }
-        return{
-            "Success": True,
-            "Text": result["text"]
-        }
+        if "error" in result: #checks for api level errors, if there is an error then it will print the error and return None   
+            print("API Error:", result["error"])
+            return None
 
-    
+        return result["text"] #returns the transcribed text from the result dictionary

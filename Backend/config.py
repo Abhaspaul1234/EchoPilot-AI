@@ -5,4 +5,4 @@ import os
 load_dotenv()
 
 # Read the API key
-HF_API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")

@@ -1,8 +1,6 @@
 from datetime import datetime
 
 from database.db import db
-
-
 class Session(db.Model):
     __tablename__ = "sessions"
 
@@ -17,6 +15,15 @@ class Session(db.Model):
 
     # Speech-to-text transcript
     transcript = db.Column(db.Text, nullable=False)
+
+    # Summary of the transcript     
+    summary = db.Column(db.Text, nullable=True)
+
+    # Sentiment analysis result     
+    sentiment = db.Column(db.Text, nullable=True)
+
+    # Keywords extracted from the transcript    
+    keywords = db.Column(db.Text, nullable=True)
 
     # Automatically stores upload date and time
     created_at = db.Column(
