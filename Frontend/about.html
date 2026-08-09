@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/about.css">
 </head>
+
 <body>
 
     <!-- Header / Nav -->
@@ -15,7 +17,11 @@
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <div class="logo-icon">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                        <line x1="4" y1="22" x2="4" y2="15"></line>
+                    </svg>
                 </div>
                 <div class="logo-brand">EchoPilot<span>AI</span></div>
             </a>
@@ -32,7 +38,7 @@
     </header>
 
     <main class="container">
-        
+
         <!-- Intro & Problem Statement -->
         <div class="about-intro-grid">
             <div class="intro-text-panel">
@@ -41,21 +47,27 @@
                     <span class="subtitle">// INVISIBLE STRUGGLE</span>
                 </h2>
                 <p>
-                    Standard racing telemetry maps every hardware component of the race car: throttle travel, tyre surface temperature, shock displacement, and engine cylinder pressures. 
-                    However, the most critical element of the vehicle assembly—the driver—is largely unmapped. 
+                    Standard racing telemetry maps every hardware component of the race car: throttle travel, tyre
+                    surface temperature, shock displacement, and engine cylinder pressures.
+                    However, the most critical element of the vehicle assembly—the driver—is largely unmapped.
                 </p>
                 <p>
-                    Vocal stress, cognitive overload, and extreme physical fatigue under high G-forces degrade reaction delta long before tyre wear patterns reflect it in telemetry tables. 
-                    By ignoring biometrics, race engineers miss early indicators of driver panic or communication degradation, resulting in suboptimal pit wall strategies.
+                    Vocal stress, cognitive overload, and extreme physical fatigue under high G-forces degrade reaction
+                    delta long before tyre wear patterns reflect it in telemetry tables.
+                    By ignoring biometrics, race engineers miss early indicators of driver panic or communication
+                    degradation, resulting in suboptimal pit wall strategies.
                 </p>
             </div>
-            
-            <div class="dash-card" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+
+            <div class="dash-card"
+                style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
                 <h3 style="color: var(--primary); margin-bottom: 12px; font-family: var(--font-mono); font-size: 1rem;">
                     PROJECT VISION // ECHOPILOT AI
                 </h3>
                 <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">
-                    We created EchoPilot AI to parse driver radio communications as biometric telemetry. By extracting high-noise speech frequencies, detecting vocal stress registers, and correlating them directly onto lap-time graphs, we bridge the gap between engineering sensors and driver acoustics.
+                    We created EchoPilot AI to parse driver radio communications as biometric telemetry. By extracting
+                    high-noise speech frequencies, detecting vocal stress registers, and correlating them directly onto
+                    lap-time graphs, we bridge the gap between engineering sensors and driver acoustics.
                 </p>
             </div>
         </div>
@@ -69,17 +81,20 @@
             <div class="step-card">
                 <span class="step-number">01</span>
                 <h3>Ingest & Filter</h3>
-                <p>Ingests driver cockpit voice files (.wav, .mp3) alongside lap-times (.csv). Filters high-pitched engine notes and wind static through an acoustic noise-reduction filter.</p>
+                <p>Ingests driver cockpit voice files (.wav, .mp3) alongside lap-times (.csv). Filters high-pitched
+                    engine notes and wind static through an acoustic noise-reduction filter.</p>
             </div>
             <div class="step-card">
                 <span class="step-number">02</span>
                 <h3>Speech & Tone Scan</h3>
-                <p>Transcribes engine communications and evaluates pitch frequency variance. Identifies stress markers based on sentence length ratios and verbal agitation curves.</p>
+                <p>Transcribes engine communications and evaluates pitch frequency variance. Identifies stress markers
+                    based on sentence length ratios and verbal agitation curves.</p>
             </div>
             <div class="step-card">
                 <span class="step-number">03</span>
                 <h3>Telemetry Overlay</h3>
-                <p>Synchronizes transcript event timestamps with telemetry lap arrays, graphing stress indexes against throttle deltas to identify performance loss zones.</p>
+                <p>Synchronizes transcript event timestamps with telemetry lap arrays, graphing stress indexes against
+                    throttle deltas to identify performance loss zones.</p>
             </div>
         </div>
 
@@ -113,14 +128,15 @@
             <span class="subtitle">// DEVELOPERS</span>
         </h2>
         <div class="team-grid">
-            
+
             <div class="team-card">
                 <div class="team-header">
                     <span class="team-name">Abhas Paul</span>
                     <span class="team-role">Frontend & Charts</span>
                 </div>
                 <p class="team-desc">
-                    Comp-Sci Sophomore. Focused on dashboard panel integration, Chart.js multi-axis scales, responsive dark interfaces, and local storage state persistence.
+                    Comp-Sci Sophomore. Focused on dashboard panel integration, Chart.js multi-axis scales, responsive
+                    dark interfaces, and local storage state persistence.
                 </p>
             </div>
 
@@ -130,7 +146,8 @@
                     <span class="team-role">Bio-Acoustics</span>
                 </div>
                 <p class="team-desc">
-                    BCA Student. Conducted signal analysis research, pitch coefficient thresholds, noise filtering parameters, and voice transcript alignments.
+                    BCA Student. Conducted signal analysis research, pitch coefficient thresholds, noise filtering
+                    parameters, and voice transcript alignments.
                 </p>
             </div>
 
@@ -140,7 +157,8 @@
                     <span class="team-role">Telemetry Integration</span>
                 </div>
                 <p class="team-desc">
-                    BCA Student. Configured telemetry database variables, lap time delta calculations, mock CSV layouts, and pit wall strategy suggestions.
+                    BCA Student. Configured telemetry database variables, lap time delta calculations, mock CSV layouts,
+                    and pit wall strategy suggestions.
                 </p>
             </div>
 
@@ -150,8 +168,8 @@
                     <span class="team-role">API integration</span>
                 </div>
                 <p class="team-desc">
-                    BCA Student. Conducted signal analysis research, pitch coefficient thresholds, noise filtering parameters, and voice transcript alignments.
-                </p>
+                    BCA Student. Worked on API integration, connecting backend services with the application and
+                    ensuring smooth data communication and reliable API functionality. </p>
             </div>
 
         </div>
@@ -163,7 +181,8 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <h4>EchoPilot<span>AI</span></h4>
-                <p>An experimental motorsport telemetry analysis project built for college hackathons. Exploring bio-acoustic stress parameters inside racing simulators and driver cabins.</p>
+                <p>An experimental motorsport telemetry analysis project built for college hackathons. Exploring
+                    bio-acoustic stress parameters inside racing simulators and driver cabins.</p>
             </div>
             <div class="footer-links">
                 <h5>Platform</h5>
@@ -191,4 +210,5 @@
     <script src="js/main.js"></script>
     <script src="js/about.js"></script>
 </body>
+
 </html>
