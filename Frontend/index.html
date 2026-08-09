@@ -10,12 +10,25 @@
     <!-- Inline page styles to avoid cluttering main stylesheet -->
     <style>
         .hero {
-            padding: 80px 24px;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 30%, rgba(224, 40, 40, 0.08) 0%, transparent 60%);
-            border-bottom: 1px solid var(--border-color);
-        }
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+
+    background:
+        linear-gradient(
+            rgba(11, 12, 16, 0.72),
+            rgba(11, 12, 16, 0.90)
+        ),
+        url("../../assets/backgrounds/home page.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    border-bottom: 1px solid var(--border-color);
 
         .hero-tag {
             font-family: var(--font-mono);
