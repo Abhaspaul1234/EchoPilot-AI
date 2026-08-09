@@ -97,11 +97,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 42px;
+    height: 42px;
     background-color: var(--primary);
     border-radius: var(--radius-sm);
     color: white;
+}
+.logo-icon img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    image-rendering: auto;
 }
 
 .logo-brand span {
