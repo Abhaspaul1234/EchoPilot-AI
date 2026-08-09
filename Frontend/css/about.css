@@ -134,6 +134,20 @@
     margin-bottom: 0;
 }
 
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    image-rendering: auto;
+   
 @media (max-width: 900px) {
     .about-intro-grid {
         grid-template-columns: 1fr;
