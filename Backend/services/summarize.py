@@ -1,7 +1,9 @@
+from urllib import response
+
 import requests
 from config import API_KEY
 
-API_URL = "https://router.huggingface.co/hf-inference/models/dslim/bert-base-NER"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}"
@@ -17,8 +19,16 @@ def summarize_text(transcript):
     response = requests.post(
         API_URL,
         headers=headers,
-        json={"inputs": transcript}
+        json={
+            "inputs": transcript,
+            "parameters": {
+                "max_length": 60,
+                "min_length": 5
+            }
+        }
     )
+    print("Summarize status:", response.status_code)
+    print("Summarize response:", response.text)
     result = response.json()
 
     if isinstance(result, dict) and "error" in result:

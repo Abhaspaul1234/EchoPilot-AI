@@ -2,6 +2,7 @@ import requests
 from config import API_KEY
 
 API_URL = "https://router.huggingface.co/hf-inference/models/cardiffnlp/twitter-roberta-base-sentiment-latest"
+
 headers = {
     "Authorization": f"Bearer {API_KEY}"
 }
@@ -16,8 +17,11 @@ def analyze_sentiment(transcript):
     response = requests.post(
         API_URL,
         headers=headers,
-        json={"inputs": transcript}
+        json={"inputs": transcript[:1500]}
     )
+
+    print("Sentiment status:", response.status_code)
+    print("Sentiment response:", response.text)
     result = response.json()
 
     if isinstance(result, dict) and "error" in result:
@@ -27,7 +31,6 @@ def analyze_sentiment(transcript):
         }
 
     try:
-        # Model returns a nested list: [[{"label": "...", "score": ...}, ...]]
         scores = result[0] if isinstance(result[0], list) else result
         top = max(scores, key=lambda x: x["score"])
         label = top["label"]
