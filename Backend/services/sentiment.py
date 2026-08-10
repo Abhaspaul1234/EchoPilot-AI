@@ -1,7 +1,7 @@
 import requests
 from config import API_KEY
 
-API_URL = "https://api-inference.huggingface.co/models/j-hartmann/emotion-english-distilroberta-base"
+API_URL = "https://router.huggingface.co/hf-inference/models/openai/whisper-medium.en"
 
 headers = {
     "Authorization": f"Bearer {API_KEY}"
