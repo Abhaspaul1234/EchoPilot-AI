@@ -89,6 +89,20 @@
     gap: 16px;
 }
 
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    image-rendering: auto;
+   
 /* Diagnostics Processing Overlay */
 .processing-overlay {
     display: none; /* Block when processing */
