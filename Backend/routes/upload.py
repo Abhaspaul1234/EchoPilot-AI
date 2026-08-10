@@ -32,10 +32,10 @@ def upload_file():
 
     # Transcribe
     stt_result = transcribe_audio(audio_path)
-    if not stt_result or not stt_result.get("Success"):
-        return jsonify({
-            "error": stt_result.get("Error", "Transcription failed")
-        }), 500
+    if not stt_result:
+        return jsonify({"error": "Transcription service returned no response"}), 500
+    if not stt_result.get("Success"):
+        return jsonify({"error": stt_result.get("Error", "Transcription failed")}), 500
     transcript = stt_result.get("Text", "")
 
     # Summarize

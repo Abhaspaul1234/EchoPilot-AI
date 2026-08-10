@@ -1,30 +1,47 @@
-import requests #Makes python communicate with the Hugging Face API
-from config import API_KEY #Brings api key from config.py
+import requests
+import os
+from config import API_KEY
 
-# URL of the Whisper model on Hugging Face
-API_URL = "https://router.huggingface.co/hf-inference/models/openai/whisper-medium.en"
+API_URL = "https://router.huggingface.co/hf-inference/models/openai/whisper-large-v3"
 
-headers = {
-    "Authorization": f"Bearer {API_KEY}" #dictionary used to store the authorization header with the API key for authentication    
+headers_base = {
+    "Authorization": f"Bearer {API_KEY}"
 }
 
-def transcribe_audio(audio_path): #new function
-    with open(audio_path, "rb") as audio_file: #opens the path as audio_file in read binary mode
-        response = requests.post( #sending api request to the Hugging Face API with the audio file and headers
-        API_URL,
-        headers=headers,
-        data=audio_file
-)
-        if response.status_code != 200: #Checks if response code is not 200, if its true then we have an error.
+def transcribe_audio(audio_path):
+    ext = os.path.splitext(audio_path)[1].lower()
+    content_type = "audio/mpeg" if ext == ".mp3" else "audio/wav"
+
+    headers = {
+        **headers_base,
+        "Content-Type": content_type
+    }
+
+    with open(audio_path, "rb") as audio_file:
+        response = requests.post(
+            API_URL,
+            headers=headers,
+            data=audio_file
+        )
+
+        if response.status_code != 200:
             print("Request failed with status:", response.status_code)
-            return None
+            print("Response body:", response.text)
+            return {
+                "Success": False,
+                "Error": f"HTTP {response.status_code}: {response.text}"
+            }
 
-        
-        result = response.json() #takes only the response data and turns it into a dictionary
+        result = response.json()
 
-        
-        if "error" in result: #checks for api level errors, if there is an error then it will print the error and return None   
+        if "error" in result:
             print("API Error:", result["error"])
-            return None
+            return {
+                "Success": False,
+                "Error": result["error"]
+            }
 
-        return result["text"] #returns the transcribed text from the result dictionary
+        return {
+            "Success": True,
+            "Text": result["text"]
+        }
