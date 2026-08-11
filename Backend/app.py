@@ -48,4 +48,8 @@ with app.app_context():
 
 # Run server
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Debug mode is controlled by an env var so it can never be accidentally
+    # left on in production (the Werkzeug debugger allows remote code
+    # execution if exposed publicly). Set FLASK_DEBUG=1 for local dev.
+    debug_mode = os.getenv("FLASK_DEBUG", "0") == "1"
+    app.run(debug=debug_mode)
